@@ -1,0 +1,18 @@
+const RiskBadge = ({ score }) => {
+  const getRisk = () => {
+    if (score >= 80) return ["Critical", "bg-red-500/20 text-red-400"];
+    if (score >= 60) return ["High", "bg-orange-500/20 text-orange-400"];
+    if (score >= 30) return ["Medium", "bg-yellow-500/20 text-yellow-400"];
+    return ["Low", "bg-emerald-500/20 text-emerald-400"];
+  };
+
+  const [label, style] = getRisk();
+
+  return (
+    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${style}`}>
+      {label} · {score}
+    </span>
+  );
+};
+
+export default RiskBadge;
